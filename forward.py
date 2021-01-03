@@ -4,7 +4,7 @@ import feedparser
 from config import proxies
 
 def forward(post, tg, donelist):
-    message = post[2] + ': ' + post[0] + ' Link: ' + post[1]
+    message = '#' + post[2] + ' ' + post[0] + ' Link: ' + post[1]
     message = urllib.parse.quote(message)
     send_text = 'https://api.telegram.org/bot' + tg[0] + '/sendMessage?chat_id=' + tg[1] + '&parse_mode=HTML&text=' + message
     try:
