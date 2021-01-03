@@ -1,14 +1,19 @@
 # wechat2tg - 将微信公众号的推送转发至telegram channel
-本项目提供一种方法基于搜狗搜索将微信公众号的推送转发至tg channel
-
-曾经EFB是一种完美解决方案, 但随着微信关闭了web api, 该方案现已不可用
+本项目提供一种基于微信公众平台的方法将微信公众号的推送转发至tg channel
 
 ## 开始使用
 ### 前置
-你应当了解如何创建`tg bot`, 并获取`bot token`以及`bot chatID`
+你应当创建一个`tg bot`, 并获取`bot token`以及`bot chatID`
+
+你应当创建一个`微信公众平台订阅号`
 
 ### 安装依赖
-使用pip安装`main.py`, `forward.py`, `getpost.py`中引用的所有包
+将本项目克隆至本地
+
+使用pip安装`requirement.txt`中的所有依赖
+```
+pip install --user -r requirement.txt
+```
 
 其中的`selenium`是一个自动控制的web引擎, 如果你使用`Linux/Windows`机器 在本机上安装`Chrome/Chromium`浏览器即可; 如果你使用其它系统的机器, 请到`selenium`的官方网站上查询如何在python中使用该引擎
 
@@ -17,19 +22,28 @@
 使用`selenium`是为了更高程度地模拟人类行为, 以规避不必要的反爬虫审查
 
 ### 配置
-在目录下创建文件`botcreds.py`, 并仿照`botcreds.py.temp`在该文件中写入`bot token`以及`bot chatID`
+1. 在目录下创建文件`config.py`, 并仿照`config.py.temp`在该文件中写入配置信息, 包括`bot token`, `bot chatID`, 订阅公众号列表, 用于连接tg的代理服务器
 
-在目录下创建文件`database.pwp`, 不写入任何内容
+2. 在目录下创建文件`database.pwp`, 不写入任何内容
 
-在`main.py`的`subscribe_list`中修改你所订阅的微信公众号
+3. 登录`微信公众平台`, 将`mp.weixin.qq.com`域名下的cookie以`json`格式保存至`cookies.json`. 你可以使用[这个插件](https://chrome.google.com/webstore/detail/%E3%82%AF%E3%83%83%E3%82%AD%E3%83%BCjson%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E5%87%BA%E5%8A%9B-for-puppet/nmckokihipjgplolmcmjakknndddifde)
 
-在`forward.py`的`proxies`中修改你用于连接tg的代理服务器
+完成配置后目录应该至少包含:
+```
+chromedriver.exe
+config.py
+cookies.json
+database.pwp
+forward.py
+main.py
+update.py
+```
 
 ### 部署
 运行`python main.py`以获取订阅公众号的最新文章. 你可以为此创建一个定时任务
 
-## 缺陷
-该项目尚且存在若干缺陷
-
-1. 若订阅公众号一次性推送多篇文章, 只能收到最新的一篇推送
-2. 项目未使用数据库, 长期使用可能导致`database.pwp`文件过大. 清空文件即可(可能导致最近的几篇文章重复推送).
+## Todo
+- [] 项目未使用数据库, 长期使用可能导致`database.pwp`文件过大. 将`database.pwp`替换为数据库
+- [] 使用`docker`包装项目, 以规避安装依赖及替换默认的`x server`
+- [] 使用合适的方法替换标题作为文章的唯一标识
+- [] 重构`update.py`使用的刷新方法

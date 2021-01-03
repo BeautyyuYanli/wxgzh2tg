@@ -1,10 +1,8 @@
 import requests
 import urllib
 import feedparser
-proxies = {
- 'http': 'http://127.0.0.1:1081',
- 'https': 'http://127.0.0.1:1081',
-}
+from config import proxies
+
 def forward(post, tg, donelist):
     message = post[2] + ': ' + post[0] + ' Link: ' + post[1]
     message = urllib.parse.quote(message)
@@ -16,5 +14,7 @@ def forward(post, tg, donelist):
         else:
             raise ValueError(code)
     except:
-        with open ('err.log', 'a') as f:
-            f.write('ERR: ' + str(post) + '\n')
+        print('error when forwarding: ' + post[0])
+    else:
+        print('forwarded: ' + post[0])
+    return 0

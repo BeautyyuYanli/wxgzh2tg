@@ -1,4 +1,4 @@
-botcreds.py
+config.py
 database.pwp
-err.log
+cookies.json
 __pycache__/

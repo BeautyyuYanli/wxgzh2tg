@@ -1,0 +1,17 @@
+# Bot creds
+bot_token = '1234:abcdefgh'
+bot_chatID = '-19260817'
+# subscribe list
+subscribe_list = [
+    'DUT国际处',
+    '大连理工大学',
+    '大连理工大学团委',
+    '大连理工大学学生会',
+    '大连理工大学创新创业学院',
+    '大工教务',
+]
+# proxies for telegram
+proxies = {
+    'http': 'http://127.0.0.1:1081',
+    'https': 'http://127.0.0.1:1081',
+}
