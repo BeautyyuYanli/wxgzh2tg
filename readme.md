@@ -57,7 +57,7 @@ timeout 2m python main.py -k
 [DUT_News](https://t.me/DUT_News)
 
 ## Todo
-[] 项目未使用数据库, 长期使用可能导致`database.pwp`文件过大. 将`database.pwp`替换为数据库
-[] 使用`docker`包装项目, 以规避安装依赖及替换默认的`x server`
-[] 使用合适的方法替换标题作为文章的唯一标识
-[] 重构`update.py`使用的刷新方法
+- [ ] 项目未使用数据库, 长期使用可能导致`database.pwp`文件过大. 将`database.pwp`替换为数据库
+- [ ] 使用`docker`包装项目, 以规避安装依赖及替换默认的`x server`
+- [ ] 使用合适的方法替换标题作为文章的唯一标识
+- [ ] 重构`update.py`使用的刷新方法
