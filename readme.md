@@ -54,7 +54,9 @@ timeout 2m python main.py -k
 ```
 
 ### Demo
-[DUT_News](https://t.me/DUT_News)
+- Telegram Channel: [DUT_News](https://t.me/DUT_News)
+
+- 与[RSSHub](https://github.com/DIYgod/RSSHub)协作, 将文章进一步转为[rss订阅链接](https://rsshub.app/telegram/channel/DUT_News)
 
 ## Todo
 - [ ] 项目未使用数据库, 长期使用可能导致`database.pwp`文件过大. 将`database.pwp`替换为数据库
