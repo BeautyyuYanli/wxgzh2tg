@@ -42,6 +42,9 @@ update.py
 ### 部署
 运行`python main.py`以获取订阅公众号的最新文章. 你可以为此创建一个定时任务
 
+### Demo
+[A Demo](https://t.me/DUT_News)
+
 ## Todo
 - [] 项目未使用数据库, 长期使用可能导致`database.pwp`文件过大. 将`database.pwp`替换为数据库
 - [] 使用`docker`包装项目, 以规避安装依赖及替换默认的`x server`
