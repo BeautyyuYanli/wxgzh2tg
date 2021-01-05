@@ -30,23 +30,34 @@ pip install --user -r requirement.txt
 
 完成配置后目录应该至少包含:
 ```
-chromedriver.exe
 config.py
 cookies.json
 database.pwp
 forward.py
 main.py
 update.py
+chromedriver.exe
 ```
 
 ### 部署
 运行`python main.py`以获取订阅公众号的最新文章. 你可以为此创建一个定时任务
 
+请谨慎地配置定时任务, 以免触发微信后台的风控. 以下是一个**仅供参考**的定时任务配置
+```
+➜ crontab -l
+30 6-23/1 * * * sh /home/xxxx/wc2tg.sh
+
+➜ cat wc2tg.sh 
+cd /home/xxxx/wechat2tg/
+export DISPLAY=:0
+timeout 2m python main.py -k
+```
+
 ### Demo
-[A Demo](https://t.me/DUT_News)
+[DUT_News](https://t.me/DUT_News)
 
 ## Todo
-- [] 项目未使用数据库, 长期使用可能导致`database.pwp`文件过大. 将`database.pwp`替换为数据库
-- [] 使用`docker`包装项目, 以规避安装依赖及替换默认的`x server`
-- [] 使用合适的方法替换标题作为文章的唯一标识
-- [] 重构`update.py`使用的刷新方法
+[] 项目未使用数据库, 长期使用可能导致`database.pwp`文件过大. 将`database.pwp`替换为数据库
+[] 使用`docker`包装项目, 以规避安装依赖及替换默认的`x server`
+[] 使用合适的方法替换标题作为文章的唯一标识
+[] 重构`update.py`使用的刷新方法
