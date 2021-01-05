@@ -50,7 +50,7 @@ chromedriver.exe
 ➜ cat wc2tg.sh 
 cd /home/xxxx/wechat2tg/
 export DISPLAY=:0
-timeout 2m python main.py -k
+timeout 10m python main.py -k
 ```
 
 ### Demo
