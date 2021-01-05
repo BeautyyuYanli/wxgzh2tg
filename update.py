@@ -7,7 +7,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import sys, time, json
 from config import subscribe_list
-delay = 1
+delay = 5
 def update():
     # load driver and cookies
     if (sys.platform == 'win32'):
@@ -23,8 +23,9 @@ def update():
 
     # open editor page
     driver.get('https://mp.weixin.qq.com/cgi-bin/appmsg?t=media/appmsg_edit_v2&action=edit&isNew=1&type=10&createType=10&token=1130355716&lang=zh_CN')
-    driver.find_element_by_css_selector('#js_text_editor_tool_link > div > div').click()
     time.sleep(delay)
+    driver.find_element_by_css_selector('#js_text_editor_tool_link > div > div').click()
+    time.sleep(delay / 2)
 
     # search for articles
     update_pool = []
@@ -37,7 +38,7 @@ def update():
             else:
                 break
         othergzh_button.click()
-        time.sleep(delay)
+        time.sleep(delay / 2)
         while 1:
             try:
                 input_box = driver.find_element_by_css_selector('.link_dialog_panel .weui-desktop-form__input:nth-child(2)')
@@ -46,7 +47,7 @@ def update():
             else:
                 break
         input_box.send_keys(entry)
-        time.sleep(delay)
+        time.sleep(delay / 3)
         input_box.send_keys(Keys.ENTER)
         time.sleep(delay)
         while 1:
@@ -57,7 +58,7 @@ def update():
             else:
                 break
         gzh_entry.click()
-        time.sleep(delay)
+        time.sleep(delay * 1.5)
         while 1:
             try:
                 article_entries = driver.find_elements_by_css_selector('.inner_link_article_item')
