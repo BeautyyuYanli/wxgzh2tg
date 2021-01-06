@@ -22,7 +22,8 @@ def update():
         driver.add_cookie(i)
 
     # open editor page
-    driver.get('https://mp.weixin.qq.com/cgi-bin/appmsg?t=media/appmsg_edit_v2&action=edit&isNew=1&type=10&createType=10&token=1130355716&lang=zh_CN')
+    time.sleep(delay / 3)
+    driver.get('https://mp.weixin.qq.com/')
     time.sleep(delay)
     driver.find_element_by_css_selector('#js_text_editor_tool_link > div > div').click()
     time.sleep(delay / 2)
