@@ -5,7 +5,7 @@ from selenium.webdriver.support.ui import Select
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-import sys, time, json
+import sys, time, json, urllib
 from config import subscribe_list
 delay = 5
 def update():
@@ -22,10 +22,14 @@ def update():
         driver.add_cookie(i)
 
     # open editor page
-    time.sleep(delay / 3)
     driver.get('https://mp.weixin.qq.com/')
-    time.sleep(delay)
-    driver.find_element_by_css_selector('#js_text_editor_tool_link > div > div').click()
+    time.sleep(delay / 3)
+    real_url = driver.current_url
+    token = urllib.parse.parse_qs(real_url)['token'][0]
+    editor_url = 'https://mp.weixin.qq.com/cgi-bin/appmsg?t=media/appmsg_edit_v2&action=edit&isNew=1&type=10&createType=10&token=' + token + '&lang=zh_CN'
+    driver.get(editor_url)
+    time.sleep(delay / 3)
+    driver.find_element_by_css_selector('#js_text_editor_tool_link').click()
     time.sleep(delay / 2)
 
     # search for articles
