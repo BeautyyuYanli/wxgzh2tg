@@ -1,6 +1,7 @@
 import update
 import forward
-from config import bot_token, bot_chatID
+import requests, urllib, json
+from config import bot_token, bot_chatID, subscribe_list
 
 
 if __name__ == "__main__":
@@ -10,7 +11,11 @@ if __name__ == "__main__":
         f.close()
 
     # get updates
-    update_pool = update.update()
+    update_pool = requests.get("http://127.0.0.1:11459?query=" + "$".join(subscribe_list)).text
+    update_pool = urllib.parse.unquote(update_pool)
+    update_pool = json.loads(update_pool)
+
+    print(update_pool)
     new_update_pool = []
     for i in update_pool:
         if i[0] not in donelist:

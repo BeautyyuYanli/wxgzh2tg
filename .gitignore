@@ -2,3 +2,4 @@ config.py
 database.pwp
 cookies.json
 __pycache__/
+wxgzh-api/
