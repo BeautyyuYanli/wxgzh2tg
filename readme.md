@@ -8,7 +8,7 @@
 
 1. 在本地部署运行[wxgzh-api](https://github.com/BeautyYuYanli/wxgzh-api)
 
-2. 将[wxgzh-api](https://github.com/BeautyYuYanli/wxgzh-api)本项目克隆至本地, 使用pip安装`requirement.txt`中的所有依赖
+2. 将本项目克隆至本地, 使用pip安装`requirement.txt`中的所有依赖
 ```
 git clone https://github.com/BeautyYuYanli/wxgzh2tg.git
 cd wxgzh2tg
