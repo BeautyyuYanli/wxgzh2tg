@@ -1,4 +1,4 @@
-# Bot creds
+# bot creds
 bot_token = '1234:abcdefgh'
 bot_chatID = '-19260817'
 # subscribe list
@@ -12,6 +12,6 @@ subscribe_list = [
 ]
 # proxies for telegram
 proxies = {
-    'http': 'http://127.0.0.1:1081',
-    'https': 'http://127.0.0.1:1081',
+#    'http': 'http://127.0.0.1:1081',
+#    'https': 'http://127.0.0.1:1081',
 }

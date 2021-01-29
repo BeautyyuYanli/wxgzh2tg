@@ -1,8 +1,6 @@
-import update
 import forward
-import requests, urllib, json
+import requests, urllib, json, time
 from config import bot_token, bot_chatID, subscribe_list
-
 
 if __name__ == "__main__":
     # database
@@ -15,11 +13,11 @@ if __name__ == "__main__":
     update_pool = urllib.parse.unquote(update_pool)
     update_pool = json.loads(update_pool)
 
-    print(update_pool)
     new_update_pool = []
-    for i in update_pool:
-        if i[0] not in donelist:
-            new_update_pool.append(i)
+    for i, j in update_pool.items():
+        for k in j:
+            if k['title'] not in donelist:
+                new_update_pool.append(k)
 
     # forward to telegram
     for i in new_update_pool:

@@ -3,3 +3,4 @@ database.pwp
 cookies.json
 __pycache__/
 wxgzh-api/
+.vscode/
