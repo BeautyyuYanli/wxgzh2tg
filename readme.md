@@ -36,6 +36,11 @@ cd /home/beautyyu/Development/wxgzh2tg/
 timeout 10m python3 main.py -k
 ```
 
+另外, 请经常更新`image`以保持最新版本, 避免触发玄学报错
+```
+$ docker-compose pull
+```
+
 ### Demo
 
 - Telegram Channel: [DUT_News](https://t.me/s/DUT_News)
