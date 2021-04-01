@@ -1,17 +1,24 @@
-# bot creds
-bot_token = '1234:abcdefgh'
-bot_chatID = '-19260817'
+# Bot creds
+bot_token = '1234:asbd'
+bot_chatID = '-1123'
+qqAuthKey = 'QWERT'
+qqID = 2692374004
+qqGroup = 611095418
 # subscribe list
 subscribe_list = [
+    'DUT建工青年',
     'DUT国际处',
     '大连理工大学',
     '大连理工大学团委',
     '大连理工大学学生会',
+    '大工西山君',
     '大连理工大学创新创业学院',
+    'DUT筑梦艺声',
     '大工教务',
+    '大连理工大学广播台',
 ]
 # proxies for telegram
 proxies = {
-#    'http': 'http://127.0.0.1:1081',
-#    'https': 'http://127.0.0.1:1081',
+    'http': 'http://127.0.0.1:1081',
+    'https': 'http://127.0.0.1:1081',
 }

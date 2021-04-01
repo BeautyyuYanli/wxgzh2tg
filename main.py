@@ -1,6 +1,6 @@
 import forward
 import requests, urllib, json, time
-from config import bot_token, bot_chatID, subscribe_list
+from config import subscribe_list
 
 if __name__ == "__main__":
     # database
@@ -15,7 +15,7 @@ if __name__ == "__main__":
         update_pool = json.loads(update_pool)
     except:
         print(update_pool)
-        forward.forward({'title': update_pool, 'link': 'none', 'author': 'system'}, (bot_token, bot_chatID), [])
+        forward.forward({'title': update_pool, 'link': 'none', 'author': 'system'}, [])
     else:
         new_update_pool = []
         for i, j in update_pool.items():
@@ -24,7 +24,7 @@ if __name__ == "__main__":
                     new_update_pool.append(k)
         # forward to telegram
         for i in new_update_pool:
-            forward.forward(i, (bot_token, bot_chatID), donelist)
+            forward.forward(i, donelist)
             with open('database.pwp', 'w') as f:
                 f.write('$^$'.join(donelist))
                 f.close()
